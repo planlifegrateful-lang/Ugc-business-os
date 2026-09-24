@@ -1,0 +1,5 @@
+affiliate_ops.sqlite3
+__pycache__/
+*.pyc
+exports/
+operations.log

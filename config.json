@@ -1,0 +1,17 @@
+{
+  "brand_name": "My Affiliate Content System",
+  "niche": "",
+  "channels": ["tiktok", "instagram_reels", "youtube_shorts", "blog"],
+  "default_disclosure": "Disclosure: This content may contain affiliate links. If you purchase through them, I may earn a commission at no extra cost to you.",
+  "approval_required": true,
+  "output_dir": "./exports",
+  "research_mode": "manual-first",
+  "llm_provider": "none",
+  "llm_model": "",
+  "content_defaults": {
+    "duration_seconds": 30,
+    "tone": "clear, useful, trustworthy",
+    "cta": "Learn more through the disclosed link."
+  }
+}
+
