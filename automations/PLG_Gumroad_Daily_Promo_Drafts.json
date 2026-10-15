@@ -1,0 +1,61 @@
+{
+  "name": "PLG Gumroad Daily Promo Drafts",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "id": "plg-daily-trigger",
+      "name": "Daily 9 AM Central",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        260,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const days = [\n{angle:\"Pain point\",hook:\"Trying to rebuild your routine without feeling overwhelmed?\",body:\"Start with one intention, one useful task, and one moment of gratitude. Small steps are easier to repeat than a perfect plan.\",cta:\"The 7-Day Discipline Reset from Plan Life Grateful gives you a simple structure for your next week.\"},\n{angle:\"Practical tip\",hook:\"Try this 3-part reset today.\",body:\"1) Name one thing that matters. 2) Choose one useful task you can finish. 3) Write down one blessing you appreciate. Keep it realistic.\",cta:\"Use the 7-Day Discipline Reset to turn intentions into daily steps.\"},\n{angle:\"Encouragement\",hook:\"A difficult week does not mean you have failed.\",body:\"Review what got in the way, simplify your next step, and begin again. Progress can be quiet and still matter.\",cta:\"Find the 7-Day Discipline Reset in the Plan Life Grateful store.\"},\n{angle:\"Faith-conscious planning\",hook:\"Make room for what matters most.\",body:\"Build a realistic day around worship, responsibilities, rest, and useful work. A plan should support your life, not become another source of pressure.\",cta:\"The 7-Day Discipline Reset helps you plan a more intentional week.\"},\n{angle:\"Reflection\",hook:\"Take two minutes for an honest check-in.\",body:\"What is one responsibility you can move forward today? What can wait? What are you grateful for? Write your answers, then take one small action.\",cta:\"Use the 7-Day Discipline Reset for a guided week of reflection and action.\"},\n{angle:\"Weekly planning\",hook:\"Before the new week starts, ask yourself three questions.\",body:\"What matters most? What is one habit I can repeat? What can I stop making unnecessarily complicated? Keep your answers visible.\",cta:\"Explore the 7-Day Discipline Reset by Plan Life Grateful.\"},\n{angle:\"Fresh start\",hook:\"You can begin again without having everything figured out.\",body:\"Choose one manageable action and repeat it tomorrow. Consistency grows through realistic steps, honest review, and patience.\",cta:\"Start with the 7-Day Discipline Reset and make your next step concrete.\"}\n];\nconst day = new Date().getDay();\nconst p = days[day];\nconst url = \"PASTE_REAL_GUMROAD_PRODUCT_URL_HERE\";\nreturn [{json:{\n  date: new Date().toISOString().slice(0,10),\n  angle: p.angle,\n  hook: p.hook,\n  caption: p.hook + \"\\\\n\\\\n\" + p.body + \"\\\\n\\\\n\" + p.cta + \"\\\\n\\\\n\" + (url.startsWith(\"https://\") ? url : \"[Add your real Gumroad product link before posting.]\"),\n  hashtags: \"#PlanLifeGrateful #DailyDiscipline #Gratitude #MuslimLifestyle #PersonalGrowth\",\n  intended_channels: [\"TikTok\",\"Instagram Reels\",\"Facebook Reels\",\"YouTube Shorts\"],\n  status: \"DRAFT — review and post manually\",\n  product_url: url\n}}];"
+      },
+      "id": "plg-generate-draft",
+      "name": "Generate today's sales post",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Daily 9 AM Central": {
+      "main": [
+        [
+          {
+            "node": "Generate today's sales post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "timezone": "America/Chicago",
+    "executionOrder": "v1"
+  },
+  "versionId": "plg-gumroad-daily-drafts-v1",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
